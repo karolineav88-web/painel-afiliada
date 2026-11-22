@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8E%80%3C/text%3E%3C/svg%3E">
+<title>Painel da Afiliada · TikTok Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff1f5;--card:#fff;--ink:#3a1f2b;--mute:#86697a;--pri:#e63e82;--priInk:#fff;--lilac:#ece4ff;--line:#f5d5e2;--ok:#157a55;--okbg:#ddf5ea;--warn:#8a5a00;--warnbg:#fff0cc;--bad:#b5213f;--badbg:#fde0e6;--fh:'Fredoka','Trebuchet MS',system-ui,sans-serif;--fb:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#22121a;--card:#321c27;--ink:#fbe9f0;--mute:#c4a2b3;--pri:#ff6fa5;--priInk:#2a0f1b;--lilac:#3f3057;--line:#4d2d3c;--ok:#7fe0b4;--okbg:#17382b;--warn:#ffd36b;--warnbg:#43360f;--bad:#ff98ab;--badbg:#4a1c28}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#22121a;--card:#321c27;--ink:#fbe9f0;--mute:#c4a2b3;--pri:#ff6fa5;--priInk:#2a0f1b;--lilac:#3f3057;--line:#4d2d3c;--ok:#7fe0b4;--okbg:#17382b;--warn:#ffd36b;--warnbg:#43360f;--bad:#ff98ab;--badbg:#4a1c28}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 var(--fb)}
+main{max-width:760px;margin:0 auto;padding:20px 16px 48px}
+h1,h2{font-family:var(--fh);margin:0;font-weight:600}
+h1{font-size:26px;line-height:1.15}
+h2{font-size:19px;margin:28px 0 10px}
+.sub{color:var(--mute);margin:4px 0 0}
+.say{background:var(--pri);color:var(--priInk);border-radius:22px 22px 22px 6px;padding:16px 18px;margin:18px 0 0;font-family:var(--fh);font-size:18px;line-height:1.35}
+.say small{display:block;font:13px var(--fb);opacity:.85;margin-top:6px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin-top:14px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
+.stat b{display:block;font:600 20px var(--fh)}
+.stat span{font-size:12px;color:var(--mute)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:4px 14px;margin-top:14px}
+summary{cursor:pointer;font:600 17px var(--fh);padding:10px 0;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+ ";color:var(--pri)}
+details[open] summary::before{content:"– "}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-bottom:14px}
+.grid .w{grid-column:1/-1}
+label{font-size:13px;color:var(--mute);display:block}
+textarea{resize:vertical}
+input,select,textarea{width:100%;margin-top:3px;padding:10px 11px;font:15px var(--fb);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:11px}
+input:focus,select:focus,textarea:focus,button:focus-visible,summary:focus-visible{outline:2px solid var(--pri);outline-offset:1px}
+.btn{background:var(--pri);color:var(--priInk);border:0;border-radius:999px;padding:11px 20px;font:600 15px var(--fh);cursor:pointer}
+.btn.ghost{background:var(--lilac);color:var(--ink)}
+.btn.sm{padding:6px 13px;font-size:13px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.vid{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;margin-bottom:10px}
+.vid h3{margin:0 0 2px;font:600 16px var(--fh)}
+.meta{font-size:12.5px;color:var(--mute)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.chip{background:var(--lilac);border-radius:999px;padding:3px 10px;font-size:12.5px}
+.tag{display:inline-block;border-radius:10px;padding:4px 10px;font-size:13px;font-weight:600}
+.ok{background:var(--okbg);color:var(--ok)}.warn{background:var(--warnbg);color:var(--warn)}.bad{background:var(--badbg);color:var(--bad)}.mute{background:var(--lilac);color:var(--mute)}
+.cat{display:grid;grid-template-columns:110px 1fr;gap:4px 10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.cat:last-child{border:0}
+.bar{height:8px;border-radius:9px;background:var(--lilac);overflow:hidden}.bar i{display:block;height:100%;background:var(--pri)}
+.empty{text-align:center;color:var(--mute);padding:26px 10px}
+.note{font-size:12.5px;color:var(--mute);margin-top:22px}
+</style>
+</head>
+<body>
+<main>
+<h1>Painel da Afiliada</h1>
+<p class="sub">Anote seus vídeos e veja o que está funcionando. Seus dados ficam só neste aparelho.</p>
+<div id="say"></div>
+<div class="stats" id="stats"></div>
+
+<details id="form"><summary id="ftitle">Adicionar vídeo</summary>
+<div class="grid">
+<label>Data<input type="date" id="date"></label>
+<label>Categoria<select id="cat"></select></label>
+<label class="w">Gancho (texto na tela)<input id="hook" placeholder="Ex.: Gelo depois de 24h"></label>
+<label>Produto<input id="prod" placeholder="Ex.: Garrafa Bottle Bottle"></label>
+<label>Formato<select id="fmt"></select></label>
+<label>Duração (segundos)<input id="dur" inputmode="decimal" placeholder="10"></label>
+<label>Views<input id="views" inputmode="numeric" placeholder="988"></label>
+<label>Tempo médio assistido (s)<input id="avg" inputmode="decimal" placeholder="2,1"></label>
+<label>CTR do TikTok (%)<input id="ctr" inputmode="decimal" placeholder="1,8"></label>
+<label>Pedidos<input id="orders" inputmode="numeric" placeholder="0"></label>
+<label>Comissão (€)<input id="comm" inputmode="decimal" placeholder="0"></label>
+<div class="w row"><button class="btn" onclick="save()">Salvar vídeo</button><button class="btn ghost" onclick="clr()">Limpar</button></div>
+<div class="w meta">Pode digitar com vírgula ou ponto. Os cliques são calculados sozinhos: views × CTR.</div>
+</div></details>
+
+<h2>Ranking da semana</h2>
+<div class="card"><label>Semana (segunda a domingo)<select id="wk" onchange="render()"></select></label><div id="rank" style="margin-top:8px"></div></div>
+
+<h2>Campeão do mês</h2>
+<div class="card"><label>Mês<select id="mon" onchange="render()"></select></label><div id="champ" style="margin-top:8px"></div></div>
+
+<h2>Por categoria de gancho</h2>
+<div class="card" id="cats"></div>
+
+<h2>Seus vídeos</h2>
+<div id="list"></div>
+
+<details><summary>Ajustes das regras</summary>
+<div class="grid">
+<label>Views mínimas por vídeo<input id="sMin" inputmode="numeric"></label>
+<label>CTR mínimo (%)<input id="sCtr" inputmode="decimal"></label>
+<label>Marco 1 (vídeos)<input id="s1" inputmode="numeric"></label>
+<label>Marco 2 (vídeos)<input id="s2" inputmode="numeric"></label>
+<label>Marco 3 (vídeos)<input id="s3" inputmode="numeric"></label>
+<label>Minhas categorias (uma por linha)<textarea id="sCats" rows="7"></textarea></label>
+<label>Meus formatos (uma por linha)<textarea id="sFmts" rows="7"></textarea></label>
+<div class="w meta">Até 12 por lista. Renomear uma opção não muda os vídeos já salvos: eles mantêm o nome antigo. Apagar o texto de uma lista volta ao padrão.</div>
+<div class="w meta">Os limites acima são hipóteses de trabalho, não regras do TikTok. Ajuste ao ritmo da sua conta.</div>
+<div class="w row"><button class="btn" onclick="saveSet()">Salvar ajustes</button><button class="btn ghost" id="rst" onclick="reset()">Apagar todos os dados</button></div>
+</div></details>
+<p class="note">A decisão sugerida é só um apoio. A decisão final é sua. Confira sempre preço, cupom, comissão e prazo na página do produto.</p>
+</main>
+<script>
+const K='painel-afiliada-v1',D1=['Presente','Prova real','Escolha','Cena / estética','Urgência','Outro'];let CATS=D1.slice();
+let S={v:[],s:{min:200,ctr:1,m1:15,m2:35,m3:50}},ed=null,dl=null;
+try{const r=localStorage.getItem(K);if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}
+const $=i=>document.getElementById(i);const NL=String.fromCharCode(10);
+const persist=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
+const num=x=>{const n=parseFloat(String(x).trim().replace(',','.'));return isNaN(n)?null:n};
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pct=(x,d=1)=>x==null?'–':(x*100).toFixed(d).replace('.',',')+'%';
+const eur=x=>(x||0).toFixed(2).replace('.',',')+' €';
+const nf=x=>(x||0).toLocaleString('pt-PT');
+function calc(v){const c=v.views!=null&&v.ctr!=null?Math.round(v.views*v.ctr/100):null;
+ return{c,ret:v.dur>0&&v.avg!=null?v.avg/v.dur:null,conv:c>0&&v.orders!=null?v.orders/c:null}}
+function diag(v,k){if(v.views==null||k.c==null)return['Preencha views e CTR','mute'];
+ if(v.views<S.s.min)return['Poucas views: rever gancho','bad'];
+ if(v.ctr<S.s.ctr)return['Poucos cliques: rever chamada final','warn'];
+ if(!v.orders)return['Cliques sem pedidos: rever oferta e preço','warn'];
+ return['Funciona: repita esse formato','ok']}
+let FORMS=[];const D2=['POV','Teste real','ASMR','Unboxing','Enquete / escolha','Rotina','Embrulho / presente','Outro'];
+function lists(){CATS=(S.cats&&S.cats.length?S.cats:D1).slice();FORMS=(S.fmts&&S.fmts.length?S.fmts:D2).slice();const c=$('cat').value,f=$('fmt').value;$('cat').innerHTML='';$('fmt').innerHTML='';CATS.forEach(x=>$('cat').add(new Option(x,x)));FORMS.forEach(x=>$('fmt').add(new Option(x,x)));if(CATS.includes(c))$('cat').value=c;if(FORMS.includes(f))$('fmt').value=f}
+lists();
+const cmp=(a,b)=>{for(const i of ['m','o','c','r','w']){const d=(b[i]||0)-(a[i]||0);if(d)return d}return 0};
+const mlabel=m=>{const p=m.split('-');return new Date(p[0],p[1]-1,1).toLocaleDateString('pt-PT',{month:'long',year:'numeric'})};
+function best(items,key){const g={};items.forEach(x=>{const k=key(x)||'Sem dados';(g[k]=g[k]||[]).push(x)});
+ return Object.keys(g).map(k=>{const b=g[k],n=b.length,s=f=>b.reduce((a,x)=>a+(f(x)||0),0),r=b.map(x=>x.k.ret).filter(x=>x!=null).map(x=>Math.min(x,1));
+  return{k,n,m:s(x=>x.v.comm)/n,o:s(x=>x.v.orders)/n,c:s(x=>x.k.c)/n,r:r.length?r.reduce((a,z)=>a+z,0)/r.length:0,w:s(x=>x.v.views)/n}}).sort(cmp)[0]}
+function champ(A){
+ const mons=[...new Set(A.map(x=>(x.v.date||'').slice(0,7)).filter(Boolean))].sort().reverse();
+ const cur=new Date().toISOString().slice(0,7);if(!mons.includes(cur))mons.unshift(cur);
+ const sel=$('mon'),keep=sel.value&&mons.includes(sel.value)?sel.value:mons[0];
+ sel.innerHTML=mons.map(m=>`<option value="${m}">${mlabel(m)}</option>`).join('');sel.value=keep;
+ const L=A.filter(x=>(x.v.date||'').slice(0,7)===keep);
+ if(!L.length){$('champ').innerHTML='<div class="empty">Sem vídeos neste mês ainda.</div>';return}
+ const top=L.map(x=>({x,m:x.v.comm,o:x.v.orders,c:x.k.c,r:Math.min(x.k.ret||0,1),w:x.v.views})).sort(cmp)[0].x,v=top.v;
+ const bc=best(L,x=>x.v.cat),bf=best(L,x=>x.v.fmt||'Sem formato'),sales=L.some(x=>x.v.orders>0);
+ const st=b=>`média por vídeo: ${nf(Math.round(b.w))} views · ${b.c.toFixed(1).replace('.',',')} cliques · ${b.o.toFixed(1).replace('.',',')} pedidos · ${eur(b.m)} · retenção ${pct(b.r,0)} · ${b.n} vídeo${b.n>1?'s':''}${b.n<3?' (amostra pequena)':''}`;
+ $('champ').innerHTML=`<div class="cat"><b>🏆 Gancho</b><span>“${esc(v.hook||'Sem gancho')}”<br><span class="meta">${esc(v.cat)}${v.fmt?' · '+esc(v.fmt):''} · ${nf(v.views)} views · CTR ${v.ctr!=null?String(v.ctr).replace('.',',')+'%':'–'} · ${v.orders||0} pedidos · ${eur(v.comm)}</span></span></div>
+<div class="cat"><b>Categoria</b><span>${esc(bc.k)}<br><span class="meta">${st(bc)}</span></span></div>
+<div class="cat"><b>Formato</b><span>${esc(bf.k)}<br><span class="meta">${st(bf)}</span></span></div>
+<div class="say" style="margin-top:12px">Para repetir: ${esc(bc.k)} no formato ${esc(bf.k)}, com ganchos como “${esc(v.hook||'o gancho campeão')}”.<small>${sales?'Ranking por comissão, pedidos, cliques e retenção.':'Ainda sem pedidos neste mês: ranking por cliques, retenção e views.'} Com poucos vídeos, trate como indício.</small></div>`}
+const wk=d=>{const t=new Date(d+'T12:00:00');t.setDate(t.getDate()-(t.getDay()+6)%7);return t.toISOString().slice(0,10)};
+const wlab=w=>{const a=new Date(w+'T12:00:00'),b=new Date(a);b.setDate(a.getDate()+6);const f=x=>x.toLocaleDateString('pt-PT',{day:'numeric',month:'short'});return f(a)+' a '+f(b)};
+function rank(A){
+ const ws=[...new Set(A.map(x=>x.v.date?wk(x.v.date):'').filter(Boolean))];
+ const cw=wk(new Date().toISOString().slice(0,10));if(!ws.includes(cw))ws.push(cw);
+ ws.sort().reverse();
+ const sel=$('wk'),keep=sel.value&&ws.includes(sel.value)?sel.value:ws[0];
+ sel.innerHTML=ws.map(w=>`<option value="${w}">${wlab(w)}</option>`).join('');sel.value=keep;
+ const L=A.filter(x=>x.v.date&&wk(x.v.date)===keep);
+ if(!L.length){$('rank').innerHTML='<div class="empty">Sem vídeos nesta semana ainda.</div>';return}
+ const pv=new Date(keep+'T12:00:00');pv.setDate(pv.getDate()-7);const pk=pv.toISOString().slice(0,10);
+ const P=A.filter(x=>x.v.date&&wk(x.v.date)===pk);
+ const tot=B=>({n:B.length,w:B.reduce((a,x)=>a+(x.v.views||0),0),c:B.reduce((a,x)=>a+(x.k.c||0),0),o:B.reduce((a,x)=>a+(x.v.orders||0),0),m:B.reduce((a,x)=>a+(x.v.comm||0),0)});
+ const t=tot(L),p=tot(P);
+ const dd=(a,b,f)=>P.length?` <span class="meta">${a>=b?'+':'−'}${f(Math.abs(a-b))}</span>`:'';
+ const sales=L.filter(x=>x.v.orders>0).sort((a,b)=>(b.v.orders-a.v.orders)||((b.v.comm||0)-(a.v.comm||0))||((b.k.c||0)-(a.k.c||0))).slice(0,5);
+ const clk=L.filter(x=>x.k.c>0).sort((a,b)=>(b.k.c-a.k.c)||((b.v.orders||0)-(a.v.orders||0))).slice(0,5);
+ const cv=L.filter(x=>x.k.conv!=null&&x.k.c>=10&&x.v.orders>0).sort((a,b)=>b.k.conv-a.k.conv).slice(0,5);
+ const row=(x,i,m)=>`<div class="cat" style="grid-template-columns:30px 1fr"><b>${i+1}º</b><span>${esc(x.v.hook||'Sem gancho')}<br><span class="meta">${m} · ${esc(x.v.cat)}${x.v.fmt?' · '+esc(x.v.fmt):''}</span></span></div>`;
+ const sec=(h,arr,f,e)=>`<div style="margin-top:14px"><b style="font:600 16px var(--fh)">${h}</b>${arr.length?arr.map((x,i)=>row(x,i,f(x))).join(''):`<div class="meta" style="padding:6px 0">${e}</div>`}</div>`;
+ const lead=sales[0]||clk[0];
+ $('rank').innerHTML=`<div class="stats"><div class="stat"><b>${t.n}</b><span>vídeos${dd(t.n,p.n,nf)}</span></div><div class="stat"><b>${nf(t.w)}</b><span>views${dd(t.w,p.w,nf)}</span></div><div class="stat"><b>${nf(t.c)}</b><span>cliques${dd(t.c,p.c,nf)}</span></div><div class="stat"><b>${nf(t.o)}</b><span>pedidos${dd(t.o,p.o,nf)}</span></div><div class="stat"><b>${eur(t.m)}</b><span>comissão${dd(t.m,p.m,eur)}</span></div></div>`+(P.length?'<div class="meta" style="margin-top:6px">Variação em relação à semana anterior.</div>':'')
+ +sec('Mais vendas',sales,x=>`${x.v.orders} pedidos · ${eur(x.v.comm)} · ${x.k.c==null?'–':x.k.c} cliques`,'Nenhuma venda nesta semana ainda.')
+ +sec('Mais cliques no produto',clk,x=>`${x.k.c} cliques · CTR ${String(x.v.ctr).replace('.',',')}% · ${nf(x.v.views)} views · ${x.v.orders||0} pedidos`,'Preencha views e CTR para ver os cliques.')
+ +sec('Maior conversão (a partir de 10 cliques)',cv,x=>`${pct(x.k.conv)} · ${x.v.orders} pedidos em ${x.k.c} cliques`,'Ainda sem vídeos com 10 cliques e pelo menos 1 pedido.')
+ +(lead?`<div class="say" style="margin-top:14px">Vídeo da semana: “${esc(lead.v.hook||'Sem gancho')}”. Faça 3 variações dele nos próximos 7 dias, com outro cenário, outra música ou outra chamada final.<small>${sales[0]?'Foi o que mais vendeu.':'Ainda sem vendas: foi o que mais gerou cliques.'}</small></div>`:'')}
+function render(){
+ const A=S.v.map(v=>({v,k:calc(v)}));
+ const sum=f=>A.reduce((a,x)=>a+(f(x)||0),0);
+ const n=A.length,views=sum(x=>x.v.views),cl=sum(x=>x.k.c),ord=sum(x=>x.v.orders),com=sum(x=>x.v.comm);
+ const rets=A.map(x=>x.k.ret).filter(x=>x!=null),ret=rets.length?rets.reduce((a,b)=>a+b,0)/rets.length:null;
+ $('stats').innerHTML=[[n,'vídeos'],[nf(views),'views'],[nf(cl),'cliques'],[nf(ord),'pedidos'],[eur(com),'comissão'],[pct(views?cl/views:null),'CTR'],[pct(cl?ord/cl:null),'conversão'],[pct(ret,0),'retenção média']].map(a=>`<div class="stat"><b>${a[0]}</b><span>${a[1]}</span></div>`).join('');
+ let t,s='Pelos seus números e pelas regras dos ajustes.';
+ if(!n){t='Oi! Adicione seu primeiro vídeo e eu digo o que fazer.';s='Comece pelo botão Adicionar vídeo.'}
+ else if(n<S.s.m1)t='Ainda cedo: continue postando e observe retenção, views e cliques.';
+ else if(n<S.s.m2)t=ord==0&&cl>0?'Há cliques mas sem pedidos: ajuste a chamada final, a estampa ou o cupom.':(views/n<S.s.min?'Views baixas: troque os ganchos e varie o cenário.':'Continue testando e repita os formatos com melhor retenção.');
+ else t=ord==0&&cl==0?'Sem cliques nem vendas após muitos vídeos: mude muito o formato ou troque de produto.':(ord==0?'Cliques sem pedidos: confira preço, cupom e avaliações antes de desistir.':'Produto validado: escale o formato vencedor.');
+ if(n&&n>=S.s.m1&&views/n>=S.s.min&&ret!=null&&ret<.15)s='Atenção: a retenção está baixa. Teste vídeos mais curtos e gancho logo no 1.º segundo.';
+ $('say').innerHTML=`<div class="say">${t}<small>${s}</small></div>`;
+ champ(A);rank(A);
+ const g=[...new Set([...CATS,...A.map(x=>x.v.cat)])].map(c=>{const b=A.filter(x=>x.v.cat===c);if(!b.length)return null;
+  const vw=b.reduce((a,x)=>a+(x.v.views||0),0),cc=b.reduce((a,x)=>a+(x.k.c||0),0),o=b.reduce((a,x)=>a+(x.v.orders||0),0),m=b.reduce((a,x)=>a+(x.v.comm||0),0),r=b.map(x=>x.k.ret).filter(x=>x!=null);
+  return{c,n:b.length,vw,cc,o,m,r:r.length?r.reduce((a,z)=>a+z,0)/r.length:null}}).filter(Boolean);
+ const mx=Math.max(1,...g.map(x=>x.vw));
+ $('cats').innerHTML=g.length?g.map(x=>`<div class="cat"><b>${esc(x.c)}</b><div class="bar"><i style="width:${x.vw/mx*100}%"></i></div><span class="meta">${x.n} vídeos</span><span class="meta">${nf(x.vw)} views · retenção ${pct(x.r,0)} · CTR ${pct(x.vw?x.cc/x.vw:null)} · ${x.o} pedidos · ${eur(x.m)}</span></div>`).join(''):'<div class="empty">Ainda sem dados. Escolha uma categoria ao salvar cada vídeo.</div>';
+ $('list').innerHTML=A.length?A.slice().reverse().map(({v,k})=>{const d=diag(v,k);
+  return`<div class="vid"><h3>${esc(v.hook||'Sem gancho')}</h3><div class="meta">${esc(v.date||'')} · ${esc(v.cat)}${v.fmt?' · '+esc(v.fmt):''}${v.prod?' · '+esc(v.prod):''}</div>
+  <div class="chips"><span class="chip">${nf(v.views)} views</span><span class="chip">retenção ${k.ret!=null&&k.ret>1?'⚠ confira':pct(k.ret,0)}</span><span class="chip">CTR ${v.ctr!=null?String(v.ctr).replace('.',',')+'%':'–'}</span><span class="chip">${k.c==null?'–':k.c} cliques</span><span class="chip">${v.orders||0} pedidos</span><span class="chip">${eur(v.comm)}</span></div>
+  <div class="row"><span class="tag ${d[1]}">${d[0]}</span><span style="flex:1"></span><button class="btn ghost sm" onclick="edit(${v.id})">Editar</button><button class="btn ghost sm" onclick="del(${v.id},this)">Apagar</button></div></div>`}).join(''):'<div class="card empty">Nenhum vídeo ainda. Adicione o primeiro acima.</div>';
+ const q=S.s;$('sMin').value=q.min;$('sCtr').value=String(q.ctr).replace('.',',');$('s1').value=q.m1;$('s2').value=q.m2;$('s3').value=q.m3;$('sCats').value=CATS.join('\n');$('sFmts').value=FORMS.join('\n')}
+function clr(){ed=null;['hook','dur','views','avg','ctr','orders','comm'].forEach(i=>$(i).value='');$('date').value=new Date().toISOString().slice(0,10);$('cat').value=CATS[0];$('fmt').value=FORMS[0];$('ftitle').textContent='Adicionar vídeo'}
+function save(){const v={id:ed||Date.now(),date:$('date').value,cat:$('cat').value,fmt:$('fmt').value,hook:$('hook').value.trim(),prod:$('prod').value.trim(),dur:num($('dur').value),views:num($('views').value),avg:num($('avg').value),ctr:num($('ctr').value),orders:num($('orders').value)||0,comm:num($('comm').value)||0};
+ if(v.views==null){alert('Preencha as views.');return}
+ const i=S.v.findIndex(x=>x.id===v.id);i>=0?S.v[i]=v:S.v.push(v);persist();const p=v.prod;clr();$('prod').value=p;render()}
+function edit(id){const v=S.v.find(x=>x.id===id);if(!v)return;ed=id;
+ if(!CATS.includes(v.cat))$('cat').add(new Option(v.cat,v.cat));if(v.fmt&&!FORMS.includes(v.fmt))$('fmt').add(new Option(v.fmt,v.fmt));$('date').value=v.date||'';$('cat').value=v.cat;$('fmt').value=v.fmt||FORMS[0];$('hook').value=v.hook;$('prod').value=v.prod||'';
+ [['dur','dur'],['views','views'],['avg','avg'],['ctr','ctr'],['orders','orders'],['comm','comm']].forEach(a=>$(a[0]).value=v[a[1]]==null?'':String(v[a[1]]).replace('.',','));
+ $('ftitle').textContent='Editar vídeo';$('form').open=true;$('form').scrollIntoView({behavior:'smooth'})}
+function del(id,b){if(dl!==id){dl=id;b.textContent='Certeza?';return}S.v=S.v.filter(x=>x.id!==id);dl=null;persist();render()}
+function saveSet(){const g=(i,d)=>num($(i).value)??d;S.s={min:g('sMin',200),ctr:g('sCtr',1),m1:g('s1',15),m2:g('s2',35),m3:g('s3',50)};const L=i=>[...new Set($(i).value.split('\n').map(x=>x.trim()).filter(Boolean))].slice(0,12);S.cats=L('sCats');S.fmts=L('sFmts');lists();persist();render()}
+function reset(){const b=$('rst');if(b.dataset.s!=='1'){b.dataset.s='1';b.textContent='Certeza? Clique de novo';return}S.v=[];persist();b.dataset.s='';b.textContent='Apagar todos os dados';render()}
+clr();render();
+</script>
+</body>
+</html>
